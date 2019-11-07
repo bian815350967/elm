@@ -1,0 +1,32 @@
+flex-center()
+  display: flex
+  align-content center
+  justify-content center
+border-bottom-1px($color-row-line)
+  position: relative
+  &::before, &::after
+    content: ""
+    display: block
+    position: absolute
+    transform-origin: 0 0
+  &::after
+    border-bottom: 1PX solid $color-row-line
+    left: 0
+    bottom: 0
+    width: 100%
+    transform-origin: 0 bottom
+  @media (min-resolution: 2dppx)
+    &::after
+      width: 200%
+      transform: scale(.5)
+  @media (min-resolution: 3dppx)
+    &::after
+      width: 300%
+      transform: scale(.333)
+more-rihgt-icon($width, $color, $borderW)
+  width: $width;
+  height: $width;
+  display: inline-block;
+  border-top: $borderW solid $color;
+  border-right: $borderW solid $color;
+  transform: rotate(45deg);
