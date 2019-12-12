@@ -232,7 +232,7 @@ export default {
         console.log(err)
       })
       */
-      this.$api.get('/static/mock/sell.json').then(res => {
+      this.$api.get('/mock/sell.json').then(res => {
         this.redpack = res.redpack
         this.shopRst = res.rst
         this.shoppingMenu = res.menu

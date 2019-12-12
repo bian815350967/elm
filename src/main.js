@@ -30,6 +30,7 @@ Vue.use(Style)
 Vue.use(TabPanels)
 
 Vue.prototype.$api = api
+Vue.prototype.$url = 'https://bian815350967.github.io/mapp/elm/#'
 Vue.config.productionTip = false
 
 // 图片拼接

@@ -129,6 +129,7 @@
             </li>
           </ul>
           <!--商家列表-->
+<!--          <div @click="$router.push('/shop')">shop</div>-->
           <mearchat-list :recommendSellArr="recommendSellArr"></mearchat-list>
         </div>
       </div>
@@ -220,7 +221,7 @@ export default {
     },
     // 获取头部美食导航
     getNav () {
-      this.$api.get('/apis/a' + '/restapi/shopping/v2/entries', {
+      this.$api.get('/mock/nav.json', {
         latitude: this.userAddress.latitude,
         longitude: this.userAddress.longitude,
         templates: ['main_template', 'favourable_template', 'svip_template'],
@@ -270,7 +271,7 @@ export default {
       if (data === 2) {
         params.quality_union = 1
       }
-      this.$api.get('/apis/a/restapi/shopping/v3/restaurants', params).then(res => {
+      this.$api.get('/mock/restaurant.json', params).then(res => {
         if (res.length === 0) {
           this.scrollOptions.pullUpLoad = false
         }

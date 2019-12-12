@@ -132,18 +132,20 @@ export default {
           searchData.latitude = this.position.latitude
           searchData.longitude = this.position.longitude
         }
-        this.$api.get('/apis/a' + '/restapi/bgs/poi/search_poi_nearby_alipay', searchData).then(res => {
-          if (res.length > 0) {
-            this.addressArr = res
-            this.$refs.scroll7.refresh()
-            this.errAddress = false
-            this.options.pullDownRefresh = true
-          } else {
-            this.addressArr = []
-            this.options.pullDownRefresh = false
-            this.errAddress = true
-          }
-        })
+        setTimeout(() => {
+          this.$api.get('/mock/address.json', searchData).then(res => {
+            if (res.length > 0) {
+              this.addressArr = res
+              this.$refs.scroll7.refresh()
+              this.errAddress = false
+              this.options.pullDownRefresh = true
+            } else {
+              this.addressArr = []
+              this.options.pullDownRefresh = false
+              this.errAddress = true
+            }
+          })
+        }, 1000)
       } else {
         this.options.pullDownRefresh = false
         this.addressArr = []
